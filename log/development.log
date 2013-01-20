@@ -27828,3 +27828,21 @@ Processing by PostsController#index as HTML
   Rendered layouts/_navigation.html.erb (1.2ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 84ms (Views: 80.0ms | ActiveRecord: 1.8ms)
+Connecting to database specified by database.yml
+  [1m[36m (2.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130112090135)
+Migrating to AddNameToUsers (20130112090139)
+Migrating to RolifyCreateRoles (20130112090152)
+Migrating to CreatePosts (20130112093949)
+Migrating to CreateCategories (20130112094210)
+Migrating to CategoriesPosts (20130112095147)
+Migrating to CreateRedactorAssets (20130116170026)
+Migrating to ActsAsCommentableWithThreadingMigration (20130118191427)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commentable_id" integer DEFAULT 0, "commentable_type" varchar(255) DEFAULT '', "title" varchar(255) DEFAULT '', "body" text DEFAULT '', "subject" varchar(255) DEFAULT '', "user_id" integer DEFAULT 0 NOT NULL, "parent_id" integer, "lft" integer, "rgt" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_comments_on_commentable_id" ON "comments" ("commentable_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130118191427')[0m
+  [1m[35m (19.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m

@@ -31,6 +31,7 @@ gem "therubyracer", ">= 0.11.0", :group => :assets, :platform => :ruby, :require
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'redactor-rails'
 gem "carrierwave"
+gem "haml"
 gem "mini_magick"
 gem 'acts_as_commentable_with_threading'
 group :production do
