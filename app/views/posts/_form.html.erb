@@ -3,6 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
+    <%= f.label :excerpt, "Write an introduction of your post here" %>
+    <%= f.text_area :excerpt, :class => 'redactor' %>
+    <%= f.label :body, "Blog post" %>
     <%= f.text_area :body, :class => 'redactor' %>
     <%= f.input :publish_date %>
     <%= f.association :categories, :as => :check_boxes %>

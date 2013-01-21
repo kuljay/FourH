@@ -4,7 +4,7 @@
     <h2><%= link_to post.title, post %></h2>
     <p><%= link_to post.user.name, root_path(:user => post.user.id) %> | <%= post.publish_date %> </p>
     
-    <p><%= raw post.body %></p>
+    <p><%= raw post.excerpt %></p>
 
     <% post.categories.each do |cat| %>
     <%= link_to cat.name, root_path(:cat => cat.id) %> |

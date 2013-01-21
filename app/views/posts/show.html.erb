@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<h2><%= @post.title %></h2>
+<p><p><%= link_to @post.user.name, root_path(:user => @post.user.id) %> | <%= @post.publish_date %> </p></p>
 
 <p>
-  <b>Body:</b>
   <%= raw @post.body %>
 </p>
 
 <p>
-  <b>Publish date:</b>
-  <%= @post.publish_date %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
+ 
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+  <% if user_signed_in? %>
+        <% if current_user.has_role? :admin or current_user.id == @post.user_id %>
+  
+        <p>
+       <%= link_to 'Back', posts_path %> |
+       <%= link_to 'Edit', edit_post_path(@post) %> | 
+       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
+<% end %>
